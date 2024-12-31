@@ -1,3 +1,4 @@
+from courses.views import CourseListView
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
@@ -9,6 +10,8 @@ urlpatterns = [
     path('accounts/logout/', views.LogoutView.as_view(), name='logout'),
     path('admin/', admin.site.urls),
     path('course/', include('courses.urls')),
+    path('students/', include('students.urls')),
+    path('', CourseListView.as_view(), name='course_list'),
 ]
 
 if settings.DEBUG:
